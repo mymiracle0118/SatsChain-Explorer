@@ -12,6 +12,8 @@ const apiEndpoint = [
   apiPort && ':' + apiPort,
 ].filter(Boolean).join('');
 
+console.log( "wwwwwwwow apiEndpoint: ", apiEndpoint );
+
 const socketSchema = getEnvValue('NEXT_PUBLIC_API_WEBSOCKET_PROTOCOL') || 'wss';
 const socketEndpoint = [
   socketSchema,

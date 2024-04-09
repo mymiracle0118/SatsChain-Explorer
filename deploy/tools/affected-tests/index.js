@@ -46,9 +46,7 @@ function getFileDeps(filename, changedNpmModules) {
 async function getChangedFiles() {
   const command = process.env.CI ?
     `git diff --name-only origin/${ process.env.GITHUB_BASE_REF } ${ process.env.GITHUB_SHA } -- ${ ROOT_DIR }` :
-    `git diff --name-only main $(git branch --show-current) -- ${ ROOT_DIR }`;
-
-  console.log('Executing command: ', command);
+    `git diff --name-only main $(git branch --show-curr
   const files = execSync(command)
     .toString()
     .trim()

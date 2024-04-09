@@ -31,7 +31,6 @@ const getCspReportUrl = () => {
 };
 
 export function app(): CspDev.DirectiveDescriptor {
-  // console.log(config);
   const marketplaceFeaturePayload = getFeaturePayload(config.features.marketplace);
 
   return {

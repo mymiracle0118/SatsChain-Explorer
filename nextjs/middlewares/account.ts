@@ -6,6 +6,7 @@ import { route } from 'nextjs-routes';
 import config from 'configs/app';
 import { DAY } from 'lib/consts';
 import * as cookies from 'lib/cookies';
+import { log } from 'console';
 
 export function account(req: NextRequest) {
   const feature = config.features.account;
@@ -32,6 +33,7 @@ export function account(req: NextRequest) {
 
   // if user hasn't confirmed email yet
   if (req.cookies.get(cookies.NAMES.INVALID_SESSION)) {
+    
     // if user has both cookies, make redirect to logout
     if (apiTokenCookie) {
       // yes, we could have checked that the current URL is not the logout URL, but we hadn't
