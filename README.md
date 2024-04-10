@@ -1,38 +1,57 @@
-<h1 align="center">Blockscout frontend</h1>
-
+<h1 align="center">
+    <strong>Satschain frontend</strong>
+</h1>
 <p align="center">
-    <span>Frontend application for </span>
-    <a href="https://github.com/blockscout/blockscout/blob/master/README.md">Blockscout</a>
-    <span> blockchain explorer</span>
+    <strong>Frontend application for sats blockchain explorer</strong>
 </p>
 
-## Running and configuring the app
 
-App is distributed as a docker image. Here you can find information about the [package](https://github.com/blockscout/frontend/pkgs/container/frontend) and its recent [releases](https://github.com/blockscout/frontend/releases).
 
-You can configure your app by passing necessary environment variables when starting the container. See full list of ENVs and their description [here](./docs/ENVS.md).
+## Requirements
 
-```sh
-docker run -p 3000:3000 --env-file <path-to-your-env-file> ghcr.io/blockscout/frontend:latest
+You need to use node v20.11.0
+```
+nvm install v20.11.0
+nvm alias default v20.11.0
+nvm use
+
+node --version
 ```
 
-Alternatively, you can build your own docker image and run your app from that. Please follow this [guide](./docs/CUSTOM_BUILD.md).
+You need to install yarn
 
-For more information on migrating from the previous frontend, please see the [frontend migration docs](https://docs.blockscout.com/for-developers/frontend-migration).
+## Clone the repo
 
-## Contributing
+You can clone the repo
+```
+git clone git@github.com:satschaintech/etherscanindexer.git && cd etherscanindexer
+```
 
-See our [Contribution guide](./docs/CONTRIBUTING.md) for pull request protocol. We expect contributors to follow our [code of conduct](./CODE_OF_CONDUCT.md) when submitting code or comments.
+## Setting env vars
+You need to copy `.env.development` to `.env.development.local`
+```
+cp .env.development .env.development.local
+```
 
-## Resources
-- [App ENVs list](./docs/ENVS.md)
-- [Contribution guide](./docs/CONTRIBUTING.md)
-- [Making a custom build](./docs/CUSTOM_BUILD.md)
-- [Frontend migration guide](https://docs.blockscout.com/for-developers/frontend-migration)
-- [Manual deployment guide with backend and microservices](https://docs.blockscout.com/for-developers/deployment/manual-deployment-guide)
+You need to set env vars
+```
+...
+NEXT_PUBLIC_APP_PROTOCOL=http                   # your explorer 
+NEXT_PUBLIC_APP_HOST=localhost                  # your explorer ( I think you should use http://localhost for testing for the first time )
+NEXT_PUBLIC_APP_PORT=4000                       # your explorer port
 
-## License
+NEXT_PUBLIC_AUTH_URL=http://localhost:4000      # your explorer host
+...
 
-[![License: GPL v3.0](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+```
 
-This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
+## Running the app
+
+You can run the app by using following command
+```
+yarn dev
+```
+
+You can open link, for example `http://localhost:4000`
+
+You can check integration in `blocks` page
