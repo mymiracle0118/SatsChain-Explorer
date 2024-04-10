@@ -41,6 +41,11 @@ NEXT_PUBLIC_APP_HOST=localhost                  # your explorer ( I think you sh
 NEXT_PUBLIC_APP_PORT=4000                       # your explorer port
 
 NEXT_PUBLIC_AUTH_URL=http://localhost:4000      # your explorer host
+# api configuration
+NEXT_PUBLIC_API_PROTOCOL=http                   # API config
+NEXT_PUBLIC_API_HOST=localhost
+NEXT_PUBLIC_API_PORT=8300                       # API port, it must be same as server's EXPLORER_SERVER_PORT
+NEXT_PUBLIC_API_BASE_PATH=/
 ...
 
 ```
